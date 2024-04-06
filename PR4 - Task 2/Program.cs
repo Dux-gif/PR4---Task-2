@@ -11,9 +11,9 @@ namespace PR4___Task_1
         static void Main(string[] args)
         {
             
-            int sum = 0;
-            int[,] arr = new int[2, 3];
-            int[,] arr2 = new int[2, 3];
+            int[,] sum = new int[4, 2];
+            int[,] arr = new int[4, 2];
+            int[,] arr2 = new int[4, 2];
 
             Random r = new Random();
             Console.WriteLine($"Первая матрица: ");
@@ -46,16 +46,18 @@ namespace PR4___Task_1
 
 
             }
-            foreach (int i in arr)
+            Console.WriteLine($"\nСуммарная матрица");
+            for (int i = 0; i < sum.GetLength(0); i++)
             {
-                sum += i;
+                for (int j = 0; j < sum.GetLength(1); j++)
+                {
+                    sum[i, j] = arr[i, j] + arr2[i, j];
+                    
+                    Console.Write($"{sum[i, j]} ");
+                }
+                Console.WriteLine();
             }
-            foreach (int j in arr2)
-            {
-                sum += j;
-            }
-            Console.Write($"\nСумма двух матриц: {sum}");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
